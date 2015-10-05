@@ -3,6 +3,33 @@ from unittest import TestCase
 from api_examples import APIExampleMixin
 
 
+class TestAPIExampleMixin(APIExampleMixin, TestCase):
+    EXAMPLES_DIR = 'tests/examples'
+
+    def test_api_example_json_file(self):
+        file_path = self.api_example_json_file('/users/pk', 'get')
+
+        expected_path = self.EXAMPLES_DIR + '/users/pk/get.json'
+        self.assertEqual(file_path, expected_path)
+
+    def test_api_example_data(self):
+        data = self.api_example_data('/users/pk', 'get')
+
+        expected_data = {
+            'description': 'Information about a user',
+            'url': '/users/<pk>',
+            'OK': {
+                'status': 200,
+                'response_data':  {
+                    'url': 'http://localhost:8000/users/1',
+                    'name': 'Arthur, King of the Britons',
+                    'quest': 'To seek the holy Grail',
+                },
+            },
+        }
+        self.assertEqual(data, expected_data)
+
+
 class TestAdjustForPKs(APIExampleMixin, TestCase):
     """
     adjust_for_pks() is quite finicky, so verifying independently that it works seems

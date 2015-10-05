@@ -19,7 +19,7 @@ class APIExampleMixin:
             call self.api_example_json_file('/patients/pk', 'post')
             and you'll get 'api-description/patients/pk/post.json'
         """
-        return '{base}/api-description{url}/{method}.json'.format(
+        return '{base}{url}/{method}.json'.format(
             base=self.EXAMPLES_DIR,
             url=url,
             method=method,
