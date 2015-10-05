@@ -4,11 +4,6 @@ import json
 class APIExampleMixin:
     """A TestCase mixin that allows access to API by Example retrieval methods."""
 
-    SERVER_NAME = 'localhost:8000'
-
-    def create_request(self, *args, **kwargs):
-        return super().create_request(*args, SERVER_NAME=self.SERVER_NAME, **kwargs)
-
     def api_example_json_file(self, url, method):
         """
         Return the API example at a location generated from the view URL and method.
