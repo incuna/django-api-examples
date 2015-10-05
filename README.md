@@ -1,4 +1,3 @@
-# django-api-examples
+# python-api-examples
 
-Django API examples is a collection of test helpers for working with Rest API
-examples.
+Python API examples is a collection of python test helpers for working with Rest API examples.

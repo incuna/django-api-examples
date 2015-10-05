@@ -1,4 +1,4 @@
-# Changelog for Django API Examples
+# Changelog for Python API Examples
 
 ## v0.1.0
 
