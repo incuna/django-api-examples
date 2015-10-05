@@ -6,3 +6,7 @@ help:
 
 release:
 	python setup.py register sdist bdist_wheel upload
+
+test:
+	coverage run -m unittest
+	coverage report
